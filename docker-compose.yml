@@ -1,0 +1,20 @@
+version: '3.8' # Specifies the version of the Docker Compose file format
+
+services: # This is where you define your application's containers
+  
+  notebook: # We'll name our service 'notebook'
+    
+    # Tells Compose to build the image from the Dockerfile in the current directory
+    build: . 
+    
+    # Gives the container a consistent, predictable name
+    container_name: titanic_project_container
+    
+    # Maps port 8888 on your machine to port 8888 in the container
+    ports:
+      - "8888:8888"
+      
+    # Mounts your current project directory to the /app directory in the container
+    # This allows you to edit files locally and see changes instantly
+    volumes:
+      - "./:/app"
